@@ -17,3 +17,17 @@ spring:
     url: jdbc:h2:mem:test
     username: sa
     password:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 562611089424-ae9dvmfs7nmao8v32svmfqa6i6kais33.apps.googleusercontent.com
+            client-secret: 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
+          facebook:
+            client-id: 465358593799840
+            client-secret: a37286e3dae00dcdce628f40dfe363f5
+custom:
+  oauth2:
+    kakao:
+      client-id: 1b8ff676ae01724ed77437f98d399543

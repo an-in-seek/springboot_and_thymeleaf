@@ -42,6 +42,10 @@ public class Board extends BaseTimeEntity implements Serializable {
         this.user = user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void update(Board board) {
         this.title = board.getTitle();
         this.subTitle = board.getSubTitle();

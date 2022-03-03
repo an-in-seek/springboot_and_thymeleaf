@@ -5,19 +5,27 @@ import com.web.seek.domain.User;
 import com.web.seek.domain.enums.BoardType;
 import com.web.seek.repository.BoardRepository;
 import com.web.seek.repository.UserRepository;
+import com.web.seek.resolver.UserArgumentResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 @EnableJpaAuditing
-@SpringBootApplication
 @ServletComponentScan
-public class SeekApplication {
+@SpringBootApplication
+public class SeekApplication implements WebMvcConfigurer {
+
+    @Autowired
+    private UserArgumentResolver userArgumentResolver;
 
     /**
      * 메인 함수
@@ -26,6 +34,11 @@ public class SeekApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(SeekApplication.class, args);
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(userArgumentResolver);
     }
 
     /**

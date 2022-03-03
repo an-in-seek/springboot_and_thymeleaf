@@ -34,10 +34,10 @@ public class SeekFilter implements Filter {
         log.info("request url : {}, request body : {}", url, reqContent);
 
         // res
-        String resContent = new String(httpServletResponse.getContentAsByteArray());
-        int httpStatus = httpServletResponse.getStatus();
+        // String resContent = new String(httpServletResponse.getContentAsByteArray());
+        // int httpStatus = httpServletResponse.getStatus();
         httpServletResponse.copyBodyToResponse();
-        log.info("response status : {}, response body : {}", httpStatus, resContent);
+        // log.info("response status : {}, response body : {}", httpStatus, resContent);
     }
 
     @Override

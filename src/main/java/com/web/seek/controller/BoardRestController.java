@@ -1,6 +1,8 @@
 package com.web.seek.controller;
 
+import com.web.seek.annotation.SocialUser;
 import com.web.seek.domain.Board;
+import com.web.seek.domain.User;
 import com.web.seek.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +22,8 @@ public class BoardRestController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<?> postBoard(@RequestBody Board board) {
+    public ResponseEntity<?> postBoard(@RequestBody Board board, @SocialUser User user) {
+        board.setUser(user);
         Board savedBoard = boardService.save(board);
         return new ResponseEntity<>(savedBoard, HttpStatus.CREATED);
     }

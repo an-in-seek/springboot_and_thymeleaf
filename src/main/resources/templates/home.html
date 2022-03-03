@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div th:replace="layout/header::header"></div>
+
+<!--body-->
+<div class="container">
+    <br/><br/>
+    <div class="jumbotron">
+        <h1>안녕하세요, 환영합니다.</h1>
+        <p>
+            '로그인'버튼을 클릭하세요!
+        </p>
+        <br/>
+        <p align="right">
+            <a class="btn btn-primary btn-lg" href="/board/list">로그인</a>
+        </p>
+    </div>
+</div>
+<!--/body-->
+
+<div th:replace="layout/footer::footer"></div>
+</body>
+</html>
